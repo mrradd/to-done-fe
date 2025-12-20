@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
-import type { Tasks } from "../models/Tasks";
 import type { Task } from "../models/Task";
 
 export const api = createApi({
@@ -7,8 +6,8 @@ export const api = createApi({
         baseUrl: "http://localhost:3000/",
     }),
     endpoints: (build) => ({
-        taskList: build.query<Tasks, void>({
-            query() {
+        taskList: build.query<Array<Task>, void>({
+            query: () => {
                 return {
                     url: "tasks",
                     method: "GET",

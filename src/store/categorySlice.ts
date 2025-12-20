@@ -1,18 +1,31 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Category } from "../models/Category";
 
+interface CategoryState {
+    categories: Category[];
+}
+
+const initialState: CategoryState = {
+    categories: [],
+};
+
 const categorySlice = createSlice({
     name: "categories",
-    initialState: Array<Category>,
+    initialState,
     reducers: {
         addCategory: (state, action: PayloadAction<Category>) => {
-            state.push({
+            //TODO CH. DO API REQUEST TO ADD CATEGORY
+            state.categories.push({
                 id: action.payload.id,
-                label: action.payload.label,
+                name: action.payload.name,
             });
         },
         deleteCategory: (state, action: PayloadAction<string>) => {
-            return state.filter(task => task.id !== action.payload)
+            const index = state.categories.findIndex(category => category.id === action.payload);
+            //TODO CH. DO API REQUEST TO DELETE CATEGORY
+            if (index !== -1) {
+                state.categories.splice(index, 1);
+            }
         }
     },
 });

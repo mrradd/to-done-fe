@@ -1,27 +1,34 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Task } from "../models/Task";
-import { fakeTaskList } from "../fakeData";
+
+interface TaskState {
+    tasks: Task[];
+}
+
+const initialState: TaskState = {
+    tasks: [],
+};
 
 const taskSlice = createSlice({
     name: "tasks",
-    initialState: fakeTaskList,
+    initialState,
     reducers: {
-
         addTask: (state, action: PayloadAction<Task>) => {
+            //TODO CH. DO API REQUEST TO SAVE NEW TASK
             state.tasks.push({
                 id: action.payload.id,
-                label: action.payload.label,
-                completed: action.payload.completed,
+                title: action.payload.title,
+                status: action.payload.status,
                 description: action.payload.description,
-                dueDate: action.payload.dueDate,
-                category: action.payload.category,
-                creationDate: action.payload.creationDate,
+                due_date: action.payload.due_date,
+                category_id: action.payload.category_id,
+                created_date: action.payload.created_date,
             });
         },
 
         deleteTask: (state, action: PayloadAction<string>) => {
             const index = state.tasks.findIndex(task => task.id === action.payload);
-
+            //TODO CH. DO API REQUEST TO DELETE TASK
             if (index !== -1) {
                 state.tasks.splice(index, 1);
             }
