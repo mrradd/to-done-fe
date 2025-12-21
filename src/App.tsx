@@ -6,16 +6,19 @@ import { TaskList } from './components/taskList'
 function App() {
 
   return (
-    <>
-      <div className="header">derp</div>
-      <div className="left-side">
+    <div className="main_content">
+      <header>
+        <h1>To-Done</h1>
+      </header>
+      <section className="left_side">
         <TaskList></TaskList>
-      </div>
-      <div className="right-side">
+      </section>
+
+      <section className="right_side">
         <TaskDetails></TaskDetails>
-      </div>
-    </>
-  )
+      </section>
+    </div>
+  );
 }
 
 export default App

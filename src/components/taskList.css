@@ -1,0 +1,15 @@
+.task_list {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    max-height: 100%;
+    gap: .1rem;
+    overflow: auto;
+}
+
+.task_list_card {
+    display: flex;
+    flex: 1;
+    background-color: aqua;
+    max-height: fit-content;
+}
