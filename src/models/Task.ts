@@ -2,8 +2,12 @@ export interface Task {
     id?: string; //UUID This will be undefined if we are working with a new Task.
     title: string;
     description?: string;
-    due_date?: Date; //UTC
-    created_date?: Date; //UTC. This will be undefined if we are working with a new Task.
+    due_date?: string; //UTC
+    created_date?: string; //UTC. This will be undefined if we are working with a new Task.
     status: number; // 0 = Incomplete, 1 = Complete
     category_id?: string; //UUID
 }
+
+// DTOs you send to backend (usually closer to API type)
+export type CreateTaskDto = Omit<Task, "id" | "created_date">;
+export type UpdateTaskDto = Partial<Omit<Task, "id" | "created_date">>;

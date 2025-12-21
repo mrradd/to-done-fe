@@ -14,7 +14,7 @@ const taskSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action: PayloadAction<Task>) => {
-            //TODO CH. DO API REQUEST TO SAVE NEW TASK
+            //TODO CH. DO API REQUEST TO SAVE NEW TASK SOMEWHERE
             state.tasks.push({
                 id: action.payload.id,
                 title: action.payload.title,
@@ -28,7 +28,7 @@ const taskSlice = createSlice({
 
         deleteTask: (state, action: PayloadAction<string>) => {
             const index = state.tasks.findIndex(task => task.id === action.payload);
-            //TODO CH. DO API REQUEST TO DELETE TASK
+            //TODO CH. DO API REQUEST TO DELETE TASK SOMEWHERE
             if (index !== -1) {
                 state.tasks.splice(index, 1);
             }
