@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { CreateTaskDto, Task, UpdateTaskDto } from "../models/Task";
-import type { Category, CreateCategoryDto } from "../models/Category";
+import type { Category, CategoryDto } from "../models/Category";
 
 export const api = createApi({
     reducerPath: "api",
@@ -58,7 +58,7 @@ export const api = createApi({
                 ] : [{ type: "Categories", id: "LIST" }],
         }),
 
-        createCategory: builder.mutation<Category, CreateCategoryDto>({
+        createCategory: builder.mutation<Category, CategoryDto>({
             query: (body) => ({
                 url: "/categories",
                 method: "POST",

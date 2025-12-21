@@ -3,4 +3,4 @@ export interface Category {
     name: string;
 }
 
-export type CreateCategoryDto = Omit<Category, "id">;
+export type CategoryDto = Omit<Category, "id">;

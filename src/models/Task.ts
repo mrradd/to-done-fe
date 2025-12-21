@@ -8,6 +8,5 @@ export interface Task {
     category_id?: string; //UUID
 }
 
-// DTOs you send to backend (usually closer to API type)
 export type CreateTaskDto = Omit<Task, "id" | "created_date">;
 export type UpdateTaskDto = Partial<Omit<Task, "id" | "created_date">>;

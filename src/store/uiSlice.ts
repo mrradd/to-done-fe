@@ -4,7 +4,7 @@ export type CompletionFilter = "all" | "active" | "completed";
 export type SortField = "dueDate" | "createdAt";
 export type SortDirection = "asc" | "desc";
 
-type UiState = {
+interface UiState {
     filter: CompletionFilter;
     sortField: SortField;
     sortDirection: SortDirection;
