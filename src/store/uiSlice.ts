@@ -1,23 +1,22 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { RadUUID } from "../utils";
 
 export type CompletionFilter = "all" | "active" | "completed";
-export type SortField = "dueDate" | "createdAt";
+export type SortField = "due_date" | "created_date";
 export type SortDirection = "asc" | "desc";
 
-interface UiState {
+type UiState = {
     filter: CompletionFilter;
     sortField: SortField;
     sortDirection: SortDirection;
-    selectedCategoryId: string | "all"; //UUID
-    selectedTaskId: string; //UUID
+    selectedCategoryId: RadUUID | "all";
 };
 
 const initialState: UiState = {
     filter: "all",
-    sortField: "createdAt",
+    sortField: "created_date",
     sortDirection: "desc",
     selectedCategoryId: "all",
-    selectedTaskId: "",
 };
 
 const uiSlice = createSlice({
@@ -30,20 +29,14 @@ const uiSlice = createSlice({
         setSortField(state, action: PayloadAction<SortField>) {
             state.sortField = action.payload;
         },
-        toggleSortDirection(state) {
-            state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
-        },
         setSortDirection(state, action: PayloadAction<SortDirection>) {
             state.sortDirection = action.payload;
         },
-        setSelectedCategoryId(state, action: PayloadAction<UiState["selectedCategoryId"]>) {
+        toggleSortDirection(state) {
+            state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+        },
+        setSelectedCategoryId(state, action: PayloadAction<RadUUID | "all">) {
             state.selectedCategoryId = action.payload;
-        },
-        resetUi(state) {
-            Object.assign(state, initialState);
-        },
-        setSelectedTaskId(state, action: PayloadAction<UiState["selectedTaskId"]>) {
-            state.selectedTaskId = action.payload;
         },
     },
 });
@@ -51,10 +44,9 @@ const uiSlice = createSlice({
 export const {
     setFilter,
     setSortField,
-    toggleSortDirection,
     setSortDirection,
+    toggleSortDirection,
     setSelectedCategoryId,
-    resetUi,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;
