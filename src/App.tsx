@@ -1,9 +1,12 @@
 
+import { useState } from 'react';
 import './App.css'
 import { TaskDetails } from './components/taskDetails'
 import { TaskList } from './components/taskList'
 
 function App() {
+
+  const [selectedTaskId, setSelectedTaskId] = useState("");
 
   return (
     <div className="main_content">
@@ -11,12 +14,16 @@ function App() {
         <h1>To-Done</h1>
       </header>
       <section className="left_side">
-        <TaskList></TaskList>
+        <TaskList setSelectedTaskId={setSelectedTaskId}></TaskList>
       </section>
 
       <section className="right_side">
-        <TaskDetails></TaskDetails>
+        <TaskDetails selectedTaskId={selectedTaskId}></TaskDetails>
       </section>
+      <footer>
+        <button>New Task</button>
+        <button>New Category</button>
+      </footer>
     </div>
   );
 }

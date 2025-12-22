@@ -11,7 +11,16 @@
   grid-template-rows: .1fr 1fr;
   grid-template-areas:
     "header header header"
-    "left-side . right-side";
+    "left-side . right-side"
+    "footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
 }
 
 .left_side {
