@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { CreateTaskDto, Task, UpdateTaskDto } from "../models/Task";
-import type { Category, CategoryDto } from "../models/Category";
+import type { CreateTaskDto, Task, UpdateTaskDto } from "./models/Task";
+import type { Category, CategoryDto } from "./models/Category";
 
 export const api = createApi({
     reducerPath: "api",

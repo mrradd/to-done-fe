@@ -8,7 +8,8 @@ interface UiState {
     filter: CompletionFilter;
     sortField: SortField;
     sortDirection: SortDirection;
-    selectedCategoryId: string | "all";
+    selectedCategoryId: string | "all"; //UUID
+    selectedTaskId: string; //UUID
 };
 
 const initialState: UiState = {
@@ -16,6 +17,7 @@ const initialState: UiState = {
     sortField: "createdAt",
     sortDirection: "desc",
     selectedCategoryId: "all",
+    selectedTaskId: "",
 };
 
 const uiSlice = createSlice({
@@ -39,6 +41,9 @@ const uiSlice = createSlice({
         },
         resetUi(state) {
             Object.assign(state, initialState);
+        },
+        setSelectedTaskId(state, action: PayloadAction<UiState["selectedTaskId"]>) {
+            state.selectedTaskId = action.payload;
         },
     },
 });

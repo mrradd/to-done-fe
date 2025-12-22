@@ -1,5 +1,5 @@
 import "./taskList.css"
-import { useGetTasksQuery } from "../api/api";
+import { useGetTasksQuery } from "../api";
 
 export const TaskList = () => {
     const { data: tasks = [] } = useGetTasksQuery();
