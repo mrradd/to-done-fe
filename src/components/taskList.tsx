@@ -14,6 +14,7 @@ export const TaskList = ({ setSelectedTaskId }: TaskListProps) => {
                 return (
                     <div onClick={() => {
                         setSelectedTaskId(task.id!);
+                        console.log(task.id);
                     }} key={task.id} className="task_list_card">
                         <p>{task.title}</p>
                     </div>

@@ -1,11 +1,11 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  
 }
 
 .main_content {
+  width: 100vw;
+  background-color: yellowgreen;
   display: grid;
   grid-template-columns: 1fr .1fr 1fr;
   grid-template-rows: .1fr 1fr;
@@ -13,6 +13,7 @@
     "header header header"
     "left-side . right-side"
     "footer footer footer";
+  
 }
 
 header {
